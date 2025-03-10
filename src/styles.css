@@ -1,0 +1,48 @@
+.botella {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* Ajusta el ancho esperado */
+    height: 400px; /* Ajusta la altura esperada */
+    margin: 20px auto; /* Centra horizontalmente */
+    transition: transform 0.3s ease;
+}
+
+.botella-imagen {
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantén la proporción de la imagen */
+    max-height: 100%; /* Asegúrate de que no se exceda del contenedor */
+    display: block;
+}
+
+.botella-zocalo {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.botella:hover .botella-zocalo {
+    opacity: 1; /* Muestra el zócalo al pasar el mouse */
+}
+
+.botella:hover {
+    transform: scale(1.05); /* Ampliación ligera en hover */
+}
+
+.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaciado entre botellas */
+    padding: 20px;
+}
