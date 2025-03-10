@@ -64,10 +64,7 @@ const styles = {
         alignItems: 'center',
         height: 'calc(100vh - 80px)', // Resta el espacio del header
     },
-    gif: {
-        maxWidth: '200px',
-        marginBottom: '20px',
-    },
+   
     title: {
         fontSize: '3rem',
         color: '#FFFFFF',

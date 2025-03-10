@@ -2,38 +2,41 @@ import assets from "./assets";
 
 const Bottles = [
   {
-    nombre: "Project 1",
-    descripcion: "Premium wine label design.",
+    nombre: assets.bottleSpecial1.nombre,
+    descripcion: assets.bottleSpecial1.description,
     imageUrls: {
-      // opciones para múltiples tamaños
-      // small: assets.bottle1, // Ruta para la imagen pequeña
-      large: assets.bottle1,
+      large: assets.bottleSpecial1.imageURL,
     },
     productUrl: "/detalle-producto1",
-    rotation: "-70deg",
   },
   {
-    nombre: "Project 2",
-    descripcion: "Bold spirits packaging.",
+    nombre: assets.bottleSpecial2.nombre,
+    descripcion: assets.bottleSpecial2.description,
     imageUrls: {
-      // opciones para múltiples tamaños
-      // small: assets.bottle2, // Ruta para la imagen pequeña
-      large: assets.bottle2,
+      large: assets.bottleSpecial2.imageURL,
     },
     productUrl: "/detalle-producto2",
-    rotation: "-118deg",
   },
   {
-    nombre: "Project 3",
+    nombre: assets.bottleSpecial3.nombre,
+    descripcion: assets.bottleSpecial3.description,
+    imageUrls: {
+      large: assets.bottleSpecial3.imageURL,
+    },
+    productUrl: "/detalle-producto3",
+  },
+  {
+    nombre: "Project 4",
     descripcion: "Elegant branding solutions.",
     imageUrls: {
       // opciones para múltiples tamaños
       // small: assets.bottle3, // Ruta para la imagen pequeña
-      large: assets.bottle3,
+      large: assets.bottleSpecial,
     },
     productUrl: "/detalle-producto3",
-    rotation: "-68deg",
   },
 ];
-
+console.log(assets.bottleSpecial1.nombre);
+console.log(assets.bottleSpecial1.alt);
+console.log(assets.bottleSpecial1.nombre);
 export default Bottles;
