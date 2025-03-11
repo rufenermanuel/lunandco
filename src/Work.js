@@ -1,5 +1,6 @@
 import React from "react";
 import Botella from "./Botella";
+import AllWork from "./AllWork";
 
 const Work = ({ productos }) => {
   if (!productos || productos.length === 0) {
@@ -17,7 +18,10 @@ const Work = ({ productos }) => {
           productUrl={producto.productUrl}
         />
       ))}
+      {/* Incorporamos AllWork al final */}
+      <AllWork />
     </div>
   );
 };
+
 export default Work;

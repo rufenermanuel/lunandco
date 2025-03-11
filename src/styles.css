@@ -1,3 +1,217 @@
+/* HEADER */
+/* Header principal */
+.header {
+    background-color: #2C2927; /* Fondo oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    position: relative; /* Evita cubrir otros componentes */
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out; /* Transiciones suaves */
+    margin-bottom: 120px; /* Deja espacio para el contenido de work */
+    font-family: 'Mestiza Sans', sans-serif; /* Tipografía para cuerpo */
+}
+
+/* Estado al hacer scroll */
+.header.scrolled {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor fijo */
+.header-fixed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #2C2927;
+    z-index: 1001;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+/* Nombre del estudio */
+.studio-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #F8A200; /* Texto naranja */
+    margin: 0;
+    font-family: 'Mestiza', serif; /* Tipografía para títulos */
+}
+
+/* Logo y contenedor con animación */
+.header-logo-container {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.header-logo-container.hidden {
+    opacity: 0;
+    transform: translateY(-30px); /* Mismo movimiento que el logo */
+    pointer-events: none;
+}
+
+.header-logo {
+    width: 150px;
+    max-width: 100%;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Menú hamburguesa */
+.menu-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.hamburger-menu-overlay {
+    position: fixed;
+    top: 120px; /* Justo debajo del logo */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 120px); /* Ajusta el espacio disponible */
+    background-color: #2C2927; /* Fondo limpio */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    overflow-y: auto; /* Scroll si el contenido es demasiado alto */
+}
+
+/* Opciones del menú */
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-option {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-option:hover {
+    color: #F8A200; /* Texto naranja al pasar el mouse */
+}
+
+
+
+
+/* MENÚ HAMBURGUESA  */
+
+/* Contenedor principal */
+.hamburger-menu {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Botón hamburguesa */
+.hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  z-index: 1001;
+}
+
+/* Líneas del ícono */
+.line {
+  position: absolute;
+  width: 35px;
+  height: 3px;
+  background-color: #f8a200;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.line1 {
+  top: 15px;
+  transform-origin: center;
+}
+
+.line2 {
+  top: 22px;
+  transform-origin: center;
+}
+
+.line3 {
+  top: 29px;
+  transform-origin: center;
+}
+
+.hamburger-button.open .line1 {
+  transform: rotate(45deg);
+  top: 22px;
+}
+
+.hamburger-button.open .line2 {
+  opacity: 0;
+}
+
+.hamburger-button.open .line3 {
+  transform: rotate(-45deg);
+  top: 22px;
+}
+
+/* Menú */
+.hamburger-menu-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #2c2927;
+  width: 100%;
+  height: 90%; /* Casi toda la pantalla */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+  border: 1px solid #f8a200;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hamburger-menu-content.visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hamburger-menu-item {
+  color: #f8a200;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.hamburger-menu-item:hover {
+  color: #ffffff;
+}
+/* WORK */
+
+.work {
+  display: flex; /* Cambiamos a flexbox para organizar las botellas en columna */
+  flex-direction: column; /* Una botella debajo de otra */
+  align-items: stretch; /* Asegura que ocupen el ancho completo */
+  gap: 0; /* Sin espacio entre botellas */
+  padding: 0; /* Sin espacio interno */
+  margin: 0; /* Sin espacio externo */
+}
+
+/* BOTELLA */
+
 .botella {
     cursor: pointer;
     overflow: hidden;
@@ -5,30 +219,30 @@
     transition: transform 0.3s ease;
     margin: 0; /* Elimina márgenes entre botellas */
     padding: 0; /* Sin espacio adicional */
-}
-
-.botella-imagen-container {
+    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al cuerpo del componente */
+  }
+  
+  .botella-imagen-container {
     position: relative;
     width: 100%; /* Ajusta al ancho del contenedor */
     height: 450px; /* Altura fija para recortar la imagen */
     overflow: hidden; /* Oculta la parte sobrante de la imagen */
-}
-
-.botella-imagen {
+  }
+  
+  .botella-imagen {
     width: 100%; /* Asegura que ocupe todo el ancho */
     height: 100%; /* Escala la imagen al contenedor */
     object-fit: cover; /* Recorta la imagen para llenar el contenedor */
     object-position: center; /* Centra la parte visible de la imagen */
-}
-
-
-.botella-descripcion {
+  }
+  
+  .botella-descripcion {
     position: absolute;
     bottom: 0; /* Ubicada al final del contenedor */
     left: 0;
     width: 100%;
     background-color: rgb(236, 172, 31); /* Fondo amarillo */
-    color: #FFF; /* Texto blanco */
+    color: #fff; /* Texto blanco */
     display: flex; /* Flexbox para organizar título y descripción */
     flex-direction: row; /* Título y detalles en columnas */
     justify-content: space-between; /* Separación entre título y descripción */
@@ -39,36 +253,150 @@
     transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
     max-height: none; /* Permite que el contenido se expanda si es necesario */
     white-space: normal; /* Salto de línea automático */
-}
-
-.botella-imagen-container:hover .botella-descripcion {
+    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al texto interno */
+  }
+  
+  .botella-imagen-container:hover .botella-descripcion {
     opacity: 1; /* Muestra la descripción al hover */
     transform: translateY(0); /* La trae dentro del contenedor */
-}
-
-.botella-titulo {
+  }
+  
+  .botella-titulo {
     font-size: 1.5rem; /* Tamaño destacado para el título */
     font-weight: bold;
     text-align: left; /* Alineación izquierda */
     flex-grow: 1; /* Ajuste dinámico del espacio */
     margin-right: 2%; /* Espaciado entre título y descripción */
-}
-
-.botella-detalles {
-    font-size: 1rem;
+    font-family: 'Mestiza', serif; /* Aplicar tipografía para el título */
+  }
+  
+  .botella-detalles {
+    font-size: 1rem; /* Tamaño estándar para el cuerpo */
     text-align: center; /* Alineación derecha */
     flex-grow: 2; /* Mayor espacio para la descripción */
-    color: #FFF; /* Texto blanco */
+    color: #fff; /* Texto blanco */
     word-break: break-word; /* Permite que las palabras largas se ajusten */
     overflow-wrap: break-word; /* Evita cortes de texto */
+    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al cuerpo */
+  }
+  
+/* ALL WORK */
+
+/* Contenedor del enlace ALL WORK */
+.footer-showcase {
+  padding: 20px 0;
+  background-color: #2c2927; /* Fondo oscuro */
+  display: flex;
+  justify-content: flex-end; /* Alineación a la derecha */
+  padding-right: 30px; /* Margen derecho para separarlo del borde */
 }
 
-.work {
-    display: flex; /* Cambiamos a flexbox para organizar las botellas en columna */
-    flex-direction: column; /* Una botella debajo de otra */
-    align-items: stretch; /* Asegura que ocupen el ancho completo */
-    gap: 0; /* Sin espacio entre botellas */
-    padding: 0; /* Sin espacio interno */
-    margin: 0; /* Sin espacio externo */
+/* Enlace ALL WORK */
+.all-work-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff; /* Texto en blanco */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el texto y la flecha */
+  position: relative;
+  transition: color 0.3s ease-in-out;
 }
- 
+
+.all-work-link:hover {
+  color: #f8a200; /* Cambia el texto a naranja al pasar el mouse */
+}
+
+/* Flecha */
+.arrow {
+  font-size: 1.5rem;
+  color: #f8a200; /* Flecha amarilla */
+  display: inline-block;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  position: relative;
+}
+
+.all-work-link:hover .arrow {
+  transform: translateX(
+    5px
+  ); /* Mueve la flecha hacia la derecha al hacer hover */
+  color: #f8a200; /* Flecha permanece amarilla */
+}
+
+/* FOOTER */
+
+/* Footer Principal */
+.footer {
+    background-color: #2C2927; /* Fondo oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Mestiza Sans', sans-serif; /* Tipografía para el cuerpo */
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas para las secciones */
+    gap: 20px;
+}
+
+/* Slogan */
+.footer-slogan .footer-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #F8A200; /* Naranja */
+    text-align: center;
+    font-family: 'Mestiza', serif; /* Tipografía para el slogan (título) */
+}
+
+/* Correo Electrónico */
+.footer-email {
+    text-align: center;
+}
+
+.footer-label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #F8A200;
+    font-family: 'Mestiza', serif; /* Tipografía para el título del correo */
+}
+
+.email a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Mestiza Sans', sans-serif; /* Tipografía para el enlace del correo */
+}
+
+.email a:hover {
+    text-decoration: underline;
+    color: #F8A200;
+}
+
+/* Redes Sociales */
+.footer-socials {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-link {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Mestiza Sans', sans-serif; /* Tipografía para enlaces de redes */
+}
+
+.social-link:hover {
+    color: #F8A200;
+}
+
+
+/* TIPOGRAFIAS */
+@import url('https://use.typekit.net/qns0vqv.css');

@@ -1,14 +1,16 @@
 // App.js
 import React from "react";
 import Work from "./Work";
-import Hero from "./Hero";
+import Header from "./Header";
 import Bottles from "./Bottles";
+import Footer from "./Footer";
 
 const App = () => {
   return (
     <div className="app">
-      <Hero />
+      <Header />
       <Work productos={Bottles} />
+      <Footer/>
     </div>
   );
 };
