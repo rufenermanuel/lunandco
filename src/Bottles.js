@@ -36,7 +36,5 @@ const Bottles = [
     productUrl: "/detalle-producto3",
   },
 ];
-console.log(assets.bottleSpecial1.nombre);
-console.log(assets.bottleSpecial1.alt);
-console.log(assets.bottleSpecial1.nombre);
+
 export default Bottles;

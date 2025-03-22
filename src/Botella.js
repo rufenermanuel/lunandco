@@ -11,7 +11,6 @@ const Botella = ({ nombre, descripcion, imageUrls, productUrl, rotation }) => {
                     src={imageUrls?.large || '/ruta-a-imagen-por-defecto-large.jpg'} 
                     alt={descripcion || 'Imagen del producto'} 
                     className="botella-imagen" 
-                    style={{ transform: `rotate(${rotation})` }} // Aplica rotación únicamente a la imagen
                 />
                 <div className="botella-descripcion">
                     <div className="botella-titulo">

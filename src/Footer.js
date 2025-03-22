@@ -7,7 +7,7 @@ const Footer = () => {
         {/* Slogan */}
         <div className="footer-slogan">
           <p className="footer-text">
-            Crafted in fine quantity with honest quality.
+                Crafted in fine quantity with honest quality.
           </p>
         </div>
         {/* Email */}

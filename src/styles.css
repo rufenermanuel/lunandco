@@ -1,109 +1,87 @@
+/* BODY (Estilo global) */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* HEADER */
 /* Header principal */
 .header {
-    background-color: #2C2927; /* Fondo oscuro */
-    color: #FFFFFF; /* Texto blanco */
-    position: relative; /* Evita cubrir otros componentes */
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out; /* Transiciones suaves */
-    margin-bottom: 120px; /* Deja espacio para el contenido de work */
-    font-family: 'Mestiza Sans', sans-serif; /* Tipografía para cuerpo */
+  background-color: #2C2927; /* Fondo oscuro */
+  color: #FFFFFF; /* Texto blanco */
+  position: fixed; /* Header fijo en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out; /* Transiciones suaves */
+  font-family: 'Mestiza Sans', sans-serif; /* Tipografía general */
+  display: flex;
+  flex-direction: column; /* Estructura vertical */
+  overflow: hidden; /* Oculta el contenido que se desplaza fuera del header */
 }
 
 /* Estado al hacer scroll */
 .header.scrolled {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra al hacer scroll */
 }
 
-/* Contenedor fijo */
-.header-fixed {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #2C2927;
-    z-index: 1001;
-    gap: 10px;
-    padding: 10px 20px;
+/* Primer bloque: Nombre de la empresa y menú */
+.header-top {
+  display: flex;
+  justify-content: space-between; /* Alinea texto y menú */
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #2C2927; /* Fondo igual al header */
+  z-index: 1001; /* Prioridad sobre el logo */
 }
 
 /* Nombre del estudio */
 .studio-name {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #F8A200; /* Texto naranja */
-    margin: 0;
-    font-family: 'Mestiza', serif; /* Tipografía para títulos */
-}
-
-/* Logo y contenedor con animación */
-.header-logo-container {
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-}
-
-.header-logo-container.hidden {
-    opacity: 0;
-    transform: translateY(-30px); /* Mismo movimiento que el logo */
-    pointer-events: none;
-}
-
-.header-logo {
-    width: 150px;
-    max-width: 100%;
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #F8A200; /* Naranja llamativo */
+  margin: 0;
+  text-align: center;
+  font-family: 'Mestiza', serif; /* Tipografía destacada */
 }
 
 /* Menú hamburguesa */
 .menu-container {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 10px; /* Separación del margen derecho */
 }
 
-.hamburger-menu-overlay {
-    position: fixed;
-    top: 120px; /* Justo debajo del logo */
-    left: 0;
-    width: 100%;
-    height: calc(100% - 120px); /* Ajusta el espacio disponible */
-    background-color: #2C2927; /* Fondo limpio */
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 20px;
-    overflow-y: auto; /* Scroll si el contenido es demasiado alto */
+/* Segundo bloque: Logo */
+.header-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Altura inicial del bloque del logo */
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, height 0.4s ease-in-out; /* Animación de desplazamiento y altura */
+  overflow: hidden; /* Asegura que el contenido no se vea fuera del contenedor */
 }
 
-/* Opciones del menú */
-.menu-options {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Ocultar el logo al hacer scroll */
+.header-logo-container.hidden {
+  transform: translateY(-100%); /* Desplaza el logo hacia arriba */
+  opacity: 0; /* Oculta el logo */
+  height: 0; /* Reduce la altura del contenedor a 0 */
+  pointer-events: none; /* Desactiva interacción */
 }
 
-.menu-option {
-    font-size: 1.5rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.menu-option:hover {
-    color: #F8A200; /* Texto naranja al pasar el mouse */
+/* Logo */
+.header-logo {
+  width: 150px;
+  max-width: 100%;
+  transition: opacity 0.3s ease-in-out;
 }
 
 
-
-
-/* MENÚ HAMBURGUESA  */
-
+/* MENÚ HAMBURGUESA */
 /* Contenedor principal */
 .hamburger-menu {
   position: relative;
@@ -166,27 +144,31 @@
 /* Menú */
 .hamburger-menu-content {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background-color: #2c2927;
+  top: 100px; /* Ajusta este valor según la altura del header */
+  left: 0;
   width: 100%;
-  height: 90%; /* Casi toda la pantalla */
+  height: calc(100vh - 100px); /* Ocupa el resto de la pantalla debajo del header */
+  background-color: #2c2927; /* Fondo oscuro */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  transition: transform 0.5s ease-in-out;
-  z-index: 1000;
-  border: 1px solid #f8a200;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  visibility: hidden; /* Oculta el menú inicialmente */
+  opacity: 0; /* Hace el menú transparente inicialmente */
+  transform: translateY(0); /* Resetea el transform */
+  transition: visibility 0s 0.5s, opacity 0.5s ease-in-out; /* Transición suave */
+  z-index: 999; /* Asegura que esté por encima del contenido */
 }
 
+/* Mostrar el menú */
 .hamburger-menu-content.visible {
-  transform: translate(-50%, -50%) scale(1);
+  visibility: visible; /* Hace el menú visible */
+  opacity: 1; /* Hace el menú opaco */
+  transition: opacity 0.5s ease-in-out; /* Transición suave */
 }
 
+/* Elementos del menú */
 .hamburger-menu-item {
   color: #f8a200;
   font-weight: bold;
@@ -199,6 +181,20 @@
 .hamburger-menu-item:hover {
   color: #ffffff;
 }
+
+/* RESPONSIVIDAD */
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .studio-name {
+    font-size: 1.5rem;
+  }
+
+  .header-logo {
+    width: 120px;
+  }
+}
+
+
 /* WORK */
 
 .work {
@@ -211,74 +207,60 @@
 }
 
 /* BOTELLA */
-
 .botella {
-    cursor: pointer;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
-    margin: 0; /* Elimina márgenes entre botellas */
-    padding: 0; /* Sin espacio adicional */
-    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al cuerpo del componente */
-  }
-  
-  .botella-imagen-container {
-    position: relative;
-    width: 100%; /* Ajusta al ancho del contenedor */
-    height: 450px; /* Altura fija para recortar la imagen */
-    overflow: hidden; /* Oculta la parte sobrante de la imagen */
-  }
-  
-  .botella-imagen {
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    height: 100%; /* Escala la imagen al contenedor */
-    object-fit: cover; /* Recorta la imagen para llenar el contenedor */
-    object-position: center; /* Centra la parte visible de la imagen */
-  }
-  
-  .botella-descripcion {
-    position: absolute;
-    bottom: 0; /* Ubicada al final del contenedor */
-    left: 0;
-    width: 100%;
-    background-color: rgb(236, 172, 31); /* Fondo amarillo */
-    color: #fff; /* Texto blanco */
-    display: flex; /* Flexbox para organizar título y descripción */
-    flex-direction: row; /* Título y detalles en columnas */
-    justify-content: space-between; /* Separación entre título y descripción */
-    align-items: flex-start; /* Alineación vertical al inicio */
-    padding: 15px 20px; /* Espaciado interno */
-    opacity: 0; /* Oculto al inicio */
-    transform: translateY(100%); /* Oculta fuera del contenedor */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
-    max-height: none; /* Permite que el contenido se expanda si es necesario */
-    white-space: normal; /* Salto de línea automático */
-    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al texto interno */
-  }
-  
-  .botella-imagen-container:hover .botella-descripcion {
-    opacity: 1; /* Muestra la descripción al hover */
-    transform: translateY(0); /* La trae dentro del contenedor */
-  }
-  
-  .botella-titulo {
-    font-size: 1.5rem; /* Tamaño destacado para el título */
-    font-weight: bold;
-    text-align: left; /* Alineación izquierda */
-    flex-grow: 1; /* Ajuste dinámico del espacio */
-    margin-right: 2%; /* Espaciado entre título y descripción */
-    font-family: 'Mestiza', serif; /* Aplicar tipografía para el título */
-  }
-  
-  .botella-detalles {
-    font-size: 1rem; /* Tamaño estándar para el cuerpo */
-    text-align: center; /* Alineación derecha */
-    flex-grow: 2; /* Mayor espacio para la descripción */
-    color: #fff; /* Texto blanco */
-    word-break: break-word; /* Permite que las palabras largas se ajusten */
-    overflow-wrap: break-word; /* Evita cortes de texto */
-    font-family: 'Mestiza Sans', sans-serif; /* Aplicar tipografía al cuerpo */
-  }
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Mestiza Sans', sans-serif;
+}
+
+.botella-imagen-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+.botella-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.25s ease; /* Transición suave */
+}
+
+/* Efecto de zoom y desplazamiento al pasar el mouse */
+.botella-imagen-container:hover .botella-imagen {
+  transform: scale(1.1) translateX(5px); /* Zoom suave + desplazamiento leve */
+}
+
+.botella-descripcion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(236, 172, 31);
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px 20px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-family: 'Mestiza Sans', sans-serif;
+}
+
+/* Mostrar descripción en hover */
+.botella-imagen-container:hover .botella-descripcion {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
   
 /* ALL WORK */
 

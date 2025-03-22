@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FooterShowcase = () => {
+const AllWork = () => {
     return (
         <div className="footer-showcase">
             {/* Leyenda y Flecha */}
@@ -12,4 +12,4 @@ const FooterShowcase = () => {
     );
 };
 
-export default FooterShowcase;
+export default AllWork;

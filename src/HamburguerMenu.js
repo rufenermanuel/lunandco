@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './styles.css';
 
-const HamburgerMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
+const HamburgerMenu = ({ isOpen, toggleMenu }) => {
     return (
-        <div className="hamburger-menu">
-            <button className={`hamburger-button ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                <span className="line line1"></span>
-                <span className="line line2"></span>
-                <span className="line line3"></span>
-            </button>
-            <div className={`hamburger-menu-content ${isOpen ? 'visible' : ''}`}>
-                <span className="hamburger-menu-item">Work</span>
-                <span className="hamburger-menu-item">Expertise</span>
-                <span className="hamburger-menu-item">About</span>
-                <span className="hamburger-menu-item">Contact</span>
-            </div>
-        </div>
+        <button
+            className={`hamburger-button ${isOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+        >
+            <div className="line line1"></div>
+            <div className="line line2"></div>
+            <div className="line line3"></div>
+        </button>
     );
 };
 
